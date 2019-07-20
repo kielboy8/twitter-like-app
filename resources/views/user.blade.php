@@ -19,6 +19,24 @@
                             Short bio about me.
                         </div>
                     </div>
+                    <div class="row mb-4">
+                        <div class="col text-md-left text-center">
+                            <div class="d-flex flex-row justify-content-between justify-content-md-start">
+                                <div class="flex-md-fill">
+                                    <small>Posts</small>
+                                    <p>{{ $user->posts->count() }}</p>
+                                </div>
+                                <div class="flex-md-fill">
+                                    <small>Following</small>
+                                    <p>{{ $user->following->count() }}</p>
+                                </div>
+                                <div class="flex-md-fill">
+                                    <small>Followers</small>
+                                    <p>{{ $user->followers->count() }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     @if (!Auth::check())
                         <div class="row">
                             <a href="/login">You must be logged in to follow this user.</a>

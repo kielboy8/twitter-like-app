@@ -14,7 +14,7 @@
     </div>
     @endif
     <div class="row justify-content-center pb-4">
-        <div class="col-8">
+        <div class="col-md-8 col">
             <div class="card">
                 <div class="card-body">
                     @if (session('status'))

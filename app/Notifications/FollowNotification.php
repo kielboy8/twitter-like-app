@@ -6,19 +6,22 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use App\User;
 
 class FollowNotification extends Notification
 {
     use Queueable;
+    protected $user;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($user)
     {
         //
+        $this->user = $user;
     }
 
     /**
@@ -55,7 +58,7 @@ class FollowNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'username' => $this->user->username
         ];
     }
 }

@@ -55,10 +55,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/users/{{ Auth::user()->id }}">Your Profile</a>
+                                    <a class="dropdown-item" href="/users/{{ Auth::user()->id }}"><i class="fa fa-user"></i> Your Profile</a>
+                                    <a class="dropdown-item" href="/notifications"><i class="fa fa-bell"></i> Notifications</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-sign-out"></i>
                                         {{ __('Logout') }}
                                     </a>
 

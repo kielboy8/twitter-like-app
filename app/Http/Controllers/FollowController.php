@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Notifications\FollowNotification;
 
 class FollowController extends Controller
 {
@@ -20,6 +21,7 @@ class FollowController extends Controller
             return redirect()->back()->with('error', 'You are already following this user.');
         }
 
+        $user->notify(new FollowNotification(auth()->user()));
         $user->followers()->attach(auth()->user()->id);
 
         return redirect()->back()->with('success', 'You have followed ' . $user->username . '!');

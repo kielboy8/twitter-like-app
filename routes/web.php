@@ -1,5 +1,7 @@
 <?php
 
+use App\Notifications\FollowNotification;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +16,14 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/', function () {
+//     $user = App\User::first();
+//     $user->notify(new FollowNotification);
+//     return 'Done';
+// });
 
 Route::resource('posts', 'PostController')->except(['index', 'create', 'show', 'update', 'edit']);
 Route::resource('users', 'UserController')->except(['index', 'create']);
 Route::post('users/follow/{user_id}', 'FollowController@follow');
 Route::post('users/unfollow/{user_id}', 'FollowController@unfollow');
+Route::get('/notifications', 'NotificationController@index');

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" id="app">
     @if (session('success'))
         <div class="row justify-content-center mb-2">
             <div class="col-md-8">
@@ -43,9 +43,9 @@
                             @csrf
                             <div class="form-group">
                                 <label for="description">What's on your mind?</label>
-                                <textarea name="description" id="description" rows="2" class="form-control"></textarea>
+                                <textarea name="description" id="description" rows="2" class="form-control" :maxlength="max" v-model="text" placeholder="Write your post here."></textarea>
                             </div>
-                            <div class="float-left">140 characters left</div>
+                            <div class="float-left" v-text="(max - text.length) + ' character/s left.'"></div>
                             <button type="submit" class="btn btn-primary float-right">Post</button>
                         </form>
                     @endauth

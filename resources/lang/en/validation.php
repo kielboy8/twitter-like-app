@@ -132,6 +132,10 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'description' => [
+            'required' => 'Write something in the post first!',
+            'max' => 'Your post must contain only 140 characters.'
+        ]
     ],
 
     /*

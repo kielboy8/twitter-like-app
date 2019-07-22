@@ -76,13 +76,6 @@
                             </div>
                             <div class="d-flex flex-row mb-1">
                                 <div>
-                                    <button class="btn btn-lg btn-transparent p-0 mr-5 text-secondary"><i class="fa fa-star-o"></i></button>
-                                    {{-- <form action="POST" action="/favorite-post/{{ $post->id }}">
-                                    <button class="btn btn-sm btn-transparent text-secondary" type="submit"><i
-                                            class="fa fa-star-o"></i></button>
-                                    </form> --}}
-                                </div>
-                                <div>
                                     <button class="btn btn-lg btn-transparent p-0 mr-5 text-secondary"><i class="fa fa-comment-o"></i></button>
                                 </div>
                                 <div>

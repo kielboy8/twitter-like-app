@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button type="submit" class="my-button">My Button</button>
+        <button :type="type" class="my-button" v-text="text">My Button</button>
     </div>
 </template>
 
@@ -8,12 +8,19 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-        }
+        },
+
+        props: [
+            'text',
+            'type'
+        ]
     }
 </script>
 
 <style>
     .my-button {
         background: #333;
+        color: white;
+        padding: 10px 15px;
     }
 </style>

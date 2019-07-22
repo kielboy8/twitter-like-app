@@ -8,17 +8,6 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\User  $user
@@ -37,7 +26,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('edit-user', compact('user'));
     }
 
     /**
@@ -50,16 +39,13 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         //
-    }
+        $attributes = request()->validate([
+            'username' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'. $user->id],
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user, Post $post)
-    {
-        //
+        $attributes['about'] = request()->about;
+        $user->update($attributes);
+        return view('user', compact('user'));
     }
 }

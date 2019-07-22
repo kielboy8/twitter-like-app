@@ -43,7 +43,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="description">What's on your mind?</label>
-                                <textarea name="description" id="description" rows="2" class="form-control" :maxlength="max" v-model="text" placeholder="Write your post here."></textarea>
+                                <textarea name="description" id="description" rows="2" class="form-control" :maxlength="max" v-model="text" placeholder="Write your post here." required></textarea>
                             </div>
                             <div class="float-left" v-text="(max - text.length) + ' character/s left.'"></div>
                             <button type="submit" class="btn btn-primary float-right">Post</button>

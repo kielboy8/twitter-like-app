@@ -1847,7 +1847,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
-  }
+  },
+  props: ['text', 'type']
 });
 
 /***/ }),
@@ -6309,7 +6310,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.my-button {\n    background: #333;\n}\n", ""]);
+exports.push([module.i, "\n.my-button {\n    background: #333;\n    color: white;\n    padding: 10px 15px;\n}\n", ""]);
 
 // exports
 
@@ -37791,20 +37792,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "button",
+      {
+        staticClass: "my-button",
+        attrs: { type: _vm.type },
+        domProps: { textContent: _vm._s(_vm.text) }
+      },
+      [_vm._v("My Button")]
+    )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("button", { staticClass: "my-button", attrs: { type: "submit" } }, [
-        _vm._v("My Button")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

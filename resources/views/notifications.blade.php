@@ -21,7 +21,7 @@
                                 @foreach (auth()->user()->notifications as $notification)
                                     <div class="d-flex flex-row mb-2 justify-content-between">
                                         <p class="lead">
-                                            {{ $notification->data['username'] }} just followed you!
+                                            <a href="/users/{{ $notification->data['user_id'] }}"></a>{{ $notification->data['username'] }} just followed you!
                                         </p>
                                         <small class="text-secondary">{{ $notification->created_at->diffForHumans() }}</small>
                                     </div>

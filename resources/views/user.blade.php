@@ -14,11 +14,13 @@
                             <h1 class="h4">{{ $user->username }}</h1>
                         </div>
                     </div>
-                    <div class="row mb-4">
+                    @if ($user->about)
+                    <div class="row mb-3">
                         <div class="col text-md-left text-center">
-                            Short bio about me.
+                            <p>{{ $user->about }}</p>
                         </div>
                     </div>
+                    @endif
                     <div class="row mb-4">
                         <div class="col text-md-left text-center">
                             <div class="d-flex flex-row justify-content-between justify-content-md-start">
@@ -41,7 +43,8 @@
                         <div class="row">
                             <a href="/login">You must be logged in to follow this user.</a>
                         </div>
-                    @elseif ($user->id != auth()->id())
+                    @endif
+                    @if ($user->id != auth()->id())
                         @if ($user->followers->contains(auth()->id()))
                             <div class="row">
                                 <div class="col text-md-left text-center">
@@ -61,6 +64,12 @@
                                 </div>
                             </div>
                         @endif
+                    @else
+                        <div class="row">
+                            <div class="col text-md-left text-center">
+                                <a href="/users/{{ $user->id }}/edit" class="btn btn-primary">Edit Profile</a>
+                            </div>
+                        </div>
                     @endif
                 </div>
                 
@@ -100,13 +109,6 @@
                                             </p>
                                         </div>
                                         <div class="d-flex flex-row mb-1">
-                                            <div>
-                                                <button class="btn btn-lg btn-transparent p-0 mr-5 text-secondary"><i class="fa fa-star-o"></i></button>
-                                                {{-- <form action="POST" action="/favorite-post/{{ $post->id }}">
-                                                <button class="btn btn-sm btn-transparent text-secondary" type="submit"><i
-                                                        class="fa fa-star-o"></i></button>
-                                                </form> --}}
-                                            </div>
                                             <div>
                                                 <button class="btn btn-lg btn-transparent p-0 mr-5 text-secondary"><i class="fa fa-comment-o"></i></button>
                                             </div>

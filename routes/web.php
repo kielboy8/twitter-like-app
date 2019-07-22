@@ -23,7 +23,7 @@ Route::get('/', 'HomeController@index')->name('home');
 // });
 
 Route::resource('posts', 'PostController')->except(['index', 'create', 'show', 'update', 'edit']);
-Route::resource('users', 'UserController')->except(['index', 'create']);
+Route::resource('users', 'UserController')->except(['index', 'create', 'store', 'destroy']);
 Route::post('users/follow/{user_id}', 'FollowController@follow');
 Route::post('users/unfollow/{user_id}', 'FollowController@unfollow');
 Route::get('/notifications', 'NotificationController@index');

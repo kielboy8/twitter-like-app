@@ -3,15 +3,28 @@
 @section('content')
 <div class="container">
     @if (session('success'))
-    <div class="row justify-content-center mb-2">
-        <div class="col-md-8">
-            <div class="card border-success bg-light">
-                <div class="card-body text-success">
-                    {{ session('success') }}
+        <div class="row justify-content-center mb-2">
+            <div class="col-md-8">
+                <div class="card border-success bg-light">
+                    <div class="card-body text-success">
+                        {{ session('success') }}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="row justify-content-center mb-2">
+                <div class="col-md-8">
+                    <div class="card border-danger bg-light">
+                        <div class="card-body text-danger">
+                            {{ $error }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
     @endif
     <div class="row justify-content-center pb-4">
         <div class="col-md-8 col">

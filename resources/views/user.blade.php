@@ -110,9 +110,6 @@
                                         </div>
                                         <div class="d-flex flex-row mb-1">
                                             <div>
-                                                <button class="btn btn-lg btn-transparent p-0 mr-5 text-secondary"><i class="fa fa-comment-o"></i></button>
-                                            </div>
-                                            <div>
                                                 @can('delete', $post)
                                                 <form method="POST" action="/posts/{{ $post->id }}">
                                                     @csrf

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8 col-8">
+            <div class="col-md-8 col-11">
                 <div class="row mb-5">
                     <a href="/"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
